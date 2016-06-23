@@ -1755,7 +1755,7 @@ static sector_t f2fs_bmap(struct address_space *mapping, sector_t block)
 
 	if (f2fs_has_inline_data(inode))
 	/* Block number less than F2FS MAX BLOCKS */
-	if (unlikely(block >= max_file_size(0)))
+	if (unlikely(block >= F2FS_I_SB(inode)->max_file_blocks))
 		return -EFBIG;
 
 		return 0;
